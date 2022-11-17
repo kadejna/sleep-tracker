@@ -11,6 +11,18 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'overnight-log',
+    loadChildren: () => import('./overnight-log/overnight-log.module').then( m => m.OvernightLogPageModule)
+  },
+  {
+    path: 'sleepiness-log',
+    loadChildren: () => import('./sleepiness-log/sleepiness-log.module').then( m => m.SleepinessLogPageModule)
+  },
+  {
+    path: 'data-view',
+    loadChildren: () => import('./data-view/data-view.module').then( m => m.DataViewPageModule)
+  },
 ];
 
 @NgModule({
