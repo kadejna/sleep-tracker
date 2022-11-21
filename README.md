@@ -30,6 +30,7 @@
    https://stackoverflow.com/questions/41355768/argument-of-type-date-is-not-assignable-to-parameter-of-type-string
    https://bobbyhadz.com/blog/javascript-convert-iso-string-to-date-object#:~:text=Use%20the%20Date()%20constructor,will%20return%20a%20Date%20object.&text=Copied!
    https://ionicframework.com/docs/api/range#rangevalue
+   https://ionicframework.com/docs/api/toast
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 
