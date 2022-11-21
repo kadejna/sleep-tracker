@@ -9,6 +9,7 @@ import { RangeValue } from '@ionic/core';
 })
 export class SleepinessLogPage implements OnInit {
   rangeValues: Map<Number, String>;
+  lastValue: Number;
   rangeValue: String;
 
   constructor() {
@@ -27,8 +28,8 @@ export class SleepinessLogPage implements OnInit {
   }
 
   onIonChange(ev: Event) {
-    let lastValue = Number((ev as RangeCustomEvent).detail.value);
-    this.rangeValue = this.rangeValues.get(lastValue);
+    this.lastValue = Number((ev as RangeCustomEvent).detail.value);
+    this.rangeValue = this.rangeValues.get(this.lastValue);
   }
 
 }
