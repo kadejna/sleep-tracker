@@ -8,22 +8,18 @@
 <ion-content>
   <ion-button href="">Home</ion-button>
 
-  <!-- Input: Sleep Start Time -->
+  <!-- Input: Log Time -->
   <ion-item>
-    <ion-label>Sleep Start Time</ion-label>
-    <ion-datetime display-format="MM/DD/YYYY HH:mm:ss">
-    </ion-datetime>
-  </ion-item>
-  
-  <!-- Input: Sleep End Time -->
-  <ion-item>
-    <ion-label>Sleep End Time</ion-label>
+    <ion-label>Log Time</ion-label>
     <ion-datetime display-format="MM/DD/YYYY HH:mm:ss">
     </ion-datetime>
   </ion-item>
 
+  <ion-range (ionChange)="onIonChange($event)" [ticks]="true" [snaps]="true" [min]="1" [max]="7"></ion-range>
+  <ion-label>Description: {{ rangeValue }}</ion-label>
+
   <!-- Button: Submit Time -->
-  <ion-button expand="block">Submit Time</ion-button>
+  <ion-button expand="block">Submit Sleepiness</ion-button>
 
 </ion-content>
 
