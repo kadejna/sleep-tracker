@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RangeCustomEvent } from '@ionic/angular';
-import { RangeValue } from '@ionic/core';
+import { SleepService } from '../services/sleep.service';
+import { ToastController } from '@ionic/angular';
+import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 
 @Component({
   selector: 'app-sleepiness-log',
@@ -8,11 +10,14 @@ import { RangeValue } from '@ionic/core';
   styleUrls: ['./sleepiness-log.page.scss'],
 })
 export class SleepinessLogPage implements OnInit {
+  logTime: String;
   rangeValues: Map<Number, String>;
   lastValue: Number;
   rangeValue: String;
 
-  constructor() {
+  constructor(private sleepService:SleepService, public toastController: ToastController) {
+    this.logTime = new Date().toISOString();
+
     this.rangeValues = new Map([
       [ 1, 'Feeling active, vital, alert, or wide awake' ],
       [ 2, 'Functioning at high levels, but not at peak; able to concentrate' ],
@@ -22,6 +27,9 @@ export class SleepinessLogPage implements OnInit {
       [ 6, 'Sleepy, woozy, fighting sleep; prefer to lie down' ],
       [ 7, 'No longer fighting sleep, sleep onset soon; having dream-like thoughts' ],
     ]);
+
+    this.lastValue = 1;
+    this.rangeValue = this.rangeValues.get(this.lastValue);
   }
 
   ngOnInit() {
@@ -30,6 +38,12 @@ export class SleepinessLogPage implements OnInit {
   onIonChange(ev: Event) {
     this.lastValue = Number((ev as RangeCustomEvent).detail.value);
     this.rangeValue = this.rangeValues.get(this.lastValue);
+  }
+
+  addDataEntry() {
+    console.log('Value: ' + this.lastValue.valueOf());
+    console.log('Date String: ' + this.logTime);
+    let data = new StanfordSleepinessData(this.lastValue.valueOf(), new Date(this.logTime.valueOf()));
   }
 
 }
