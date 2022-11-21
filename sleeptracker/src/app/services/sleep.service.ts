@@ -33,5 +33,6 @@ export class SleepService {
 	public logSleepinessData(sleepData:StanfordSleepinessData) {
 		SleepService.AllSleepData.push(sleepData);
 		SleepService.AllSleepinessData.push(sleepData);
+		console.log(SleepService.AllSleepinessData);
 	}
 }

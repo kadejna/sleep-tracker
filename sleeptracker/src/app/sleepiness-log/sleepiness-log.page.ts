@@ -35,6 +35,15 @@ export class SleepinessLogPage implements OnInit {
   ngOnInit() {
   }
 
+  async presentToast() {
+    var toast = await this.toastController.create({
+      message: 'Your entry has been added!',
+      duration: 2000,
+      position: 'top'
+    });
+    toast.present();
+  }
+
   onIonChange(ev: Event) {
     this.lastValue = Number((ev as RangeCustomEvent).detail.value);
     this.rangeValue = this.rangeValues.get(this.lastValue);
@@ -44,6 +53,9 @@ export class SleepinessLogPage implements OnInit {
     console.log('Value: ' + this.lastValue.valueOf());
     console.log('Date String: ' + this.logTime);
     let data = new StanfordSleepinessData(this.lastValue.valueOf(), new Date(this.logTime.valueOf()));
+
+    this.sleepService.logSleepinessData(data);
+    this.presentToast();
   }
 
 }
