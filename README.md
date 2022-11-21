@@ -18,6 +18,7 @@
    https://inf133.markbaldw.in/resources/11_15_22-ionic_components.pdf
    https://ionicframework.com/docs/api/datetime
    https://ionicframework.com/docs/api/button
+   https://ionicframework.com/docs/api/range
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 
