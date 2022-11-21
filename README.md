@@ -23,7 +23,11 @@
    https://medium.com/ramsatt/map-set-in-typescript-angular-643e506e6c3c
    https://stackoverflow.com/questions/40976536/how-to-define-typescript-map-of-key-value-pair-where-key-is-a-number-and-value
    https://stackoverflow.com/questions/12897742/how-do-you-specify-that-a-class-property-is-an-integer
-   https://ionicframework.com/docs/api/toast
+   https://forum.ionicframework.com/t/ion-datetime-binding-through-ngmodel-ionic-v4/137187
+   https://www.geeksforgeeks.org/typescript-number-valueof-method/#:~:text=The%20valueOf()%20method%20in,of%20the%20specified%20number%20object.&text=Parameter%20values%3A%20This%20method%20does,of%20the%20specified%20number%20object.
+   https://stackoverflow.com/questions/34738799/argument-of-type-x-is-not-assignable-to-parameter-of-type-x
+   https://stackoverflow.com/questions/65683502/cant-bind-ion-range-value-with-ngmodel
+   https://stackoverflow.com/questions/41355768/argument-of-type-date-is-not-assignable-to-parameter-of-type-string
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 

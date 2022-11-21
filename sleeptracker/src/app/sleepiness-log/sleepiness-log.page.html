@@ -11,7 +11,7 @@
   <!-- Input: Log Time -->
   <ion-item>
     <ion-label>Log Time</ion-label>
-    <ion-datetime display-format="MM/DD/YYYY HH:mm:ss">
+    <ion-datetime display-format="MM/DD/YYYY HH:mm:ss" [(ngModel)]="logTime">
     </ion-datetime>
   </ion-item>
 
@@ -19,7 +19,7 @@
   <ion-label>Description: {{ rangeValue }}</ion-label>
 
   <!-- Button: Submit Time -->
-  <ion-button expand="block">Submit Sleepiness</ion-button>
+  <ion-button expand="block" (click)="addDataEntry()">Submit Sleepiness</ion-button>
 
 </ion-content>
 
