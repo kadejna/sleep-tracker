@@ -18,8 +18,8 @@ export class OvernightLogPage implements OnInit {
   ngOnInit() {
   }
 
-  click() { 
-    let overnightSleepData:OvernightSleepData = new OvernightSleepData(new Date(this.sleepStart.valueOf()), new Date(this.sleepEnd.valueOf()));
+  addDataEntry() { 
+    let data = new OvernightSleepData(new Date(this.sleepStart.valueOf()), new Date(this.sleepEnd.valueOf()));
   }
 
 }
