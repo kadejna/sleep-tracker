@@ -1,4 +1,7 @@
+import { OvernightSleepData } from './../data/overnight-sleep-data';
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
+import { SleepService } from '../services/sleep.service';
 
 @Component({
   selector: 'app-overnight-log',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OvernightLogPage implements OnInit {
 
-  constructor() { }
+  constructor(private sleepService:SleepService, public toastController:ToastController) { }
 
   ngOnInit() {
   }
