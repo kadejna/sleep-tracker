@@ -19,6 +19,10 @@
    https://ionicframework.com/docs/api/datetime
    https://ionicframework.com/docs/api/button
    https://ionicframework.com/docs/api/range
+   https://stackoverflow.com/questions/14667713/how-to-convert-a-string-to-number-in-typescript
+   https://medium.com/ramsatt/map-set-in-typescript-angular-643e506e6c3c
+   https://stackoverflow.com/questions/40976536/how-to-define-typescript-map-of-key-value-pair-where-key-is-a-number-and-value
+   https://stackoverflow.com/questions/12897742/how-do-you-specify-that-a-class-property-is-an-integer
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 
