@@ -18,8 +18,19 @@ export class OvernightLogPage implements OnInit {
   ngOnInit() {
   }
 
+  async presentToast() { 
+    var toast = await this.toastController.create({
+      message: 'Your entry has been added!', 
+      duration: 2000, 
+      position: 'top'
+    });
+    toast.present();
+  }
+
   addDataEntry() { 
     let data = new OvernightSleepData(new Date(this.sleepStart.valueOf()), new Date(this.sleepEnd.valueOf()));
+    this.sleepService.logOvernightData(data);
+    this.presentToast();
   }
 
 }
