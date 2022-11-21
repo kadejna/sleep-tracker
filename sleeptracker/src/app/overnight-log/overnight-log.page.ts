@@ -9,10 +9,17 @@ import { SleepService } from '../services/sleep.service';
   styleUrls: ['./overnight-log.page.scss'],
 })
 export class OvernightLogPage implements OnInit {
+  sleepStart:string = new Date().toISOString();
+  sleepEnd:string = new Date().toISOString(); 
+
 
   constructor(private sleepService:SleepService, public toastController:ToastController) { }
 
   ngOnInit() {
+  }
+
+  click() { 
+    let overnightSleepData:OvernightSleepData = new OvernightSleepData(new Date(this.sleepStart.valueOf()), new Date(this.sleepEnd.valueOf()));
   }
 
 }
