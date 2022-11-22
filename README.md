@@ -33,6 +33,7 @@
    https://ionicframework.com/docs/api/toast
    https://ionicframework.com/docs/api/card
    https://capacitorjs.com/docs/apis/preferences
+   https://stackoverflow.com/questions/69332412/module-angular-fire-firestore-has-no-exported-member-angularfirestoremodul
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 
