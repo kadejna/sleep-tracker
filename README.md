@@ -31,6 +31,7 @@
    https://bobbyhadz.com/blog/javascript-convert-iso-string-to-date-object#:~:text=Use%20the%20Date()%20constructor,will%20return%20a%20Date%20object.&text=Copied!
    https://ionicframework.com/docs/api/range#rangevalue
    https://ionicframework.com/docs/api/toast
+   https://ionicframework.com/docs/api/card
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 
