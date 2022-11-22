@@ -28,8 +28,12 @@
     "@capacitor/preferences": "^4.0.2",
     "@capacitor/status-bar": "4.0.1",
     "@ionic/angular": "^6.1.9",
+<<<<<<< Updated upstream
+    "cordova-plugin-firebase": "^2.0.5",
+=======
     "@ionic/storage": "^3.0.6",
     "@ionic/storage-angular": "^3.0.6",
+>>>>>>> Stashed changes
     "firebase": "^9.14.0",
     "ionicons": "^6.0.3",
     "rxjs": "~6.6.0",
