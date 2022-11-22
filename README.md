@@ -32,6 +32,7 @@
    https://ionicframework.com/docs/api/range#rangevalue
    https://ionicframework.com/docs/api/toast
    https://ionicframework.com/docs/api/card
+   https://capacitorjs.com/docs/apis/preferences
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 
