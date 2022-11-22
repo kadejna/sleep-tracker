@@ -14,12 +14,13 @@ export class DataViewPage implements OnInit {
 	overnightData:OvernightSleepData[];
 	sleepinessData:StanfordSleepinessData[];
 
-  constructor(private sleepService: SleepService) { }
-
-  ngOnInit() {
+  constructor(private sleepService: SleepService) {
     this.sleepData = this.sleepService.getSleepData();
     this.overnightData = this.sleepService.getOvernightData();
     this.sleepinessData = this.sleepService.getSleepinessData();
+  }
+
+  ngOnInit() {
   }
 
 }
