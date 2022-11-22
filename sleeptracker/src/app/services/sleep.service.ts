@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-
+import { Firebase } from '@awesome-cordova-plugins/firebase/ngx';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +12,7 @@ export class SleepService {
 	public static AllOvernightData:OvernightSleepData[] = [];
 	public static AllSleepinessData:StanfordSleepinessData[] = [];
 
-	constructor() {
+	constructor(private firebase: Firebase) {
 		if(SleepService.LoadDefaultData) {
 			this.addDefaultData();
 		SleepService.LoadDefaultData = false;

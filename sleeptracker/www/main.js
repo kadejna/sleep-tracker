@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: 'home',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_home_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 3467)).then(m => m.HomePageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_services_sleep_service_ts"), __webpack_require__.e("src_app_home_home_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 3467)).then(m => m.HomePageModule)
     },
     {
         path: '',
@@ -29,15 +29,15 @@ const routes = [
     },
     {
         path: 'overnight-log',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_overnight-log_overnight-log_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./overnight-log/overnight-log.module */ 5361)).then(m => m.OvernightLogPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_services_sleep_service_ts"), __webpack_require__.e("src_app_overnight-log_overnight-log_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./overnight-log/overnight-log.module */ 5361)).then(m => m.OvernightLogPageModule)
     },
     {
         path: 'sleepiness-log',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_sleepiness-log_sleepiness-log_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./sleepiness-log/sleepiness-log.module */ 3708)).then(m => m.SleepinessLogPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_services_sleep_service_ts"), __webpack_require__.e("src_app_sleepiness-log_sleepiness-log_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./sleepiness-log/sleepiness-log.module */ 3708)).then(m => m.SleepinessLogPageModule)
     },
     {
         path: 'data-view',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_data-view_data-view_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./data-view/data-view.module */ 9036)).then(m => m.DataViewPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_services_sleep_service_ts"), __webpack_require__.e("src_app_data-view_data-view_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./data-view/data-view.module */ 9036)).then(m => m.DataViewPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {

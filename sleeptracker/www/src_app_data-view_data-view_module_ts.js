@@ -90,22 +90,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DataViewPage": () => (/* binding */ DataViewPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _data_view_page_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data-view.page.html?ngResource */ 176);
 /* harmony import */ var _data_view_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data-view.page.scss?ngResource */ 2989);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _services_sleep_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/sleep.service */ 2517);
+
 
 
 
 
 let DataViewPage = class DataViewPage {
-    constructor() { }
+    constructor(sleepService) {
+        this.sleepService = sleepService;
+        this.sleepData = this.sleepService.getSleepData();
+        this.overnightData = this.sleepService.getOvernightData();
+        this.sleepinessData = this.sleepService.getSleepinessData();
+    }
     ngOnInit() {
     }
 };
-DataViewPage.ctorParameters = () => [];
-DataViewPage = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Component)({
+DataViewPage.ctorParameters = () => [
+    { type: _services_sleep_service__WEBPACK_IMPORTED_MODULE_2__.SleepService }
+];
+DataViewPage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
         selector: 'app-data-view',
         template: _data_view_page_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
         styles: [_data_view_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__]
@@ -132,7 +141,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
   \**********************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>data-view</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>\r\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>View Data</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-button href=\"\">Home</ion-button>\r\n\r\n  <ion-list>\r\n    <ion-card ngFor=\"let sleepData of overnightData\">\r\n      <ion-card-header>\r\n        <ion-card-title>{{sleepData.loggedAt}}</ion-card-title>\r\n        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>\r\n      </ion-card-header>\r\n    \r\n      <ion-card-content>\r\n        Here's a small text description for the card content. Nothing more, nothing less.\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </ion-list>\r\n</ion-content>\r\n";
 
 /***/ })
 

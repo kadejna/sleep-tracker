@@ -90,22 +90,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "OvernightLogPage": () => (/* binding */ OvernightLogPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _overnight_log_page_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./overnight-log.page.html?ngResource */ 496);
 /* harmony import */ var _overnight_log_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./overnight-log.page.scss?ngResource */ 5425);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _data_overnight_sleep_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../data/overnight-sleep-data */ 7212);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ 3819);
+/* harmony import */ var _services_sleep_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/sleep.service */ 2517);
+
+
+
 
 
 
 
 let OvernightLogPage = class OvernightLogPage {
-    constructor() { }
+    constructor(sleepService, toastController) {
+        this.sleepService = sleepService;
+        this.toastController = toastController;
+        this.sleepStart = new Date().toISOString();
+        this.sleepEnd = new Date().toISOString();
+    }
     ngOnInit() {
     }
+    presentToast() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+            var toast = yield this.toastController.create({
+                message: 'Your entry has been added!',
+                duration: 2000,
+                position: 'top'
+            });
+            toast.present();
+        });
+    }
+    addDataEntry() {
+        let data = new _data_overnight_sleep_data__WEBPACK_IMPORTED_MODULE_2__.OvernightSleepData(new Date(this.sleepStart.valueOf()), new Date(this.sleepEnd.valueOf()));
+        this.sleepService.logOvernightData(data);
+        this.presentToast();
+    }
 };
-OvernightLogPage.ctorParameters = () => [];
-OvernightLogPage = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Component)({
+OvernightLogPage.ctorParameters = () => [
+    { type: _services_sleep_service__WEBPACK_IMPORTED_MODULE_3__.SleepService },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ToastController }
+];
+OvernightLogPage = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
         selector: 'app-overnight-log',
         template: _overnight_log_page_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
         styles: [_overnight_log_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__]
@@ -132,7 +161,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
   \******************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Overnight Log</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<!-- Content Body -->\r\n<ion-content>\r\n\r\n  <!-- Input: Sleep Start Time -->\r\n  <ion-item>\r\n    <ion-label>Sleep Start Time</ion-label>\r\n    <ion-datetime display-format=\"MM/DD/YYYY HH:mm:ss\">\r\n    </ion-datetime>\r\n  </ion-item>\r\n  \r\n  <!-- Input: Sleep End Time -->\r\n  <ion-item>\r\n    <ion-label>Sleep End Time</ion-label>\r\n    <ion-datetime display-format=\"MM/DD/YYYY HH:mm:ss\">\r\n    </ion-datetime>\r\n  </ion-item>\r\n\r\n  \r\n\r\n</ion-content>\r\n\r\n\r\n<ion-footer>\r\n  <ion-toolbar>\r\n    <ion-title></ion-title>\r\n  </ion-toolbar>\r\n</ion-footer>\r\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Overnight Log</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<!-- Content Body -->\r\n<ion-content>\r\n  <ion-button href=\"\">Home</ion-button>\r\n\r\n  <!-- Input: Sleep Start Time -->\r\n  <ion-item>\r\n    <ion-label>Sleep Start Time</ion-label>\r\n    <ion-datetime display-format=\"MM/DD/YYYY HH:mm:ss\">\r\n    </ion-datetime>\r\n  </ion-item>\r\n  \r\n  <!-- Input: Sleep End Time -->\r\n  <ion-item>\r\n    <ion-label>Sleep End Time</ion-label>\r\n    <ion-datetime display-format=\"MM/DD/YYYY HH:mm:ss\">\r\n    </ion-datetime>\r\n  </ion-item>\r\n\r\n  <!-- Button: Submit Time -->\r\n  <ion-button expand=\"block\" (click)=\"addDataEntry()\">Submit Time</ion-button>\r\n\r\n</ion-content>\r\n\r\n\r\n<ion-footer>\r\n  <ion-toolbar>\r\n    <ion-title></ion-title>\r\n  </ion-toolbar>\r\n</ion-footer>\r\n";
 
 /***/ })
 
