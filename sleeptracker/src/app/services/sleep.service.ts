@@ -2,33 +2,23 @@ import { Injectable } from '@angular/core';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
-<<<<<<< Updated upstream
-import { Firebase } from '@awesome-cordova-plugins/firebase/ngx';
-=======
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 
->>>>>>> Stashed changes
 @Injectable({
   providedIn: 'root'
 })
 @Component({
 	selector: 'app-root',
-	templateUrl: 'app.component.html'
-  })
+	templateUrl: '../app.component.html'
+})
 export class SleepService {
 	private static LoadDefaultData:boolean = true;
 	public static AllSleepData:SleepData[] = [];
 	public static AllOvernightData:OvernightSleepData[] = [];
 	public static AllSleepinessData:StanfordSleepinessData[] = [];
 
-<<<<<<< Updated upstream
-	constructor(private firebase: Firebase) {
-=======
 	constructor(private storage:Storage) {
->>>>>>> Stashed changes
 		if(SleepService.LoadDefaultData) {
 			this.addDefaultData();
 			SleepService.LoadDefaultData = false;
