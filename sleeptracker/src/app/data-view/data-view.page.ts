@@ -10,16 +10,16 @@ import { OvernightSleepData } from '../data/overnight-sleep-data';
   styleUrls: ['./data-view.page.scss'],
 })
 export class DataViewPage implements OnInit {
-  AllSleepData:SleepData[];
-	AllOvernightData:OvernightSleepData[];
-	AllSleepinessData:StanfordSleepinessData[];
+  sleepData:SleepData[];
+	overnightData:OvernightSleepData[];
+	sleepinessData:StanfordSleepinessData[];
 
   constructor(private sleepService: SleepService) { }
 
   ngOnInit() {
-    this.AllSleepData = this.sleepService.getSleepData();
-    this.AllOvernightData = this.sleepService.getOvernightData();
-    this.AllSleepinessData = this.sleepService.getSleepinessData();
+    this.sleepData = this.sleepService.getSleepData();
+    this.overnightData = this.sleepService.getOvernightData();
+    this.sleepinessData = this.sleepService.getSleepinessData();
   }
 
 }
