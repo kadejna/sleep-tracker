@@ -2,34 +2,37 @@ import { Injectable } from '@angular/core';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
-import { Component } from '@angular/core';
-import { Storage } from '@ionic/storage-angular';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
-@Component({
-	selector: 'app-root',
-	templateUrl: '../app.component.html'
-})
+
 export class SleepService {
 	private static LoadDefaultData:boolean = true;
 	public static AllSleepData:SleepData[] = [];
-	public static AllOvernightData:OvernightSleepData[] = [];
-	public static AllSleepinessData:StanfordSleepinessData[] = [];
+	public static AllOvernightData = [];
+	public static AllSleepinessData = [];
 
-	constructor(private storage:Storage) {
+	constructor(private overnightStorage:StorageService, private sleepinessStorage:StorageService) {
 		if(SleepService.LoadDefaultData) {
 			this.addDefaultData();
 			SleepService.LoadDefaultData = false;
-		//this.loadDataFromStorage();
 		}
 	}
 
-	async ngOnInit() {
-		// If using a custom driver:
-		// await this.storage.defineDriver(MyCustomDriver)
-		await this.storage.create();
+	public printOvernightArray() { 
+		console.log("PRINTING OUT OVERNIGHT ARRAY: ")
+		SleepService.AllOvernightData.forEach((key, value) => {
+			console.log(key, value);
+		});
+	}
+
+	public printSleepinessArray() { 
+		console.log("PRINTING OUT SLEEPINESS ARRAY: ")
+		SleepService.AllSleepinessData.forEach((key, value) => {
+			console.log(key, value);
+		});
 	}
 
 	private addDefaultData() {
@@ -39,15 +42,31 @@ export class SleepService {
 	}
 
 	public logOvernightData(sleepData:OvernightSleepData) {
-		//Storage.set(SleepService.AllSleepData.length, sleepData.startEndString());
 		SleepService.AllSleepData.push(sleepData);
 		SleepService.AllOvernightData.push(sleepData);
+		this.overnightStorage.set(sleepData.id, sleepData);
+		//this.overnightStorage.showAll();
+		this.overnightStorage.displayArray().then(data => {
+			console.log(data);
+		}); 
 	}
 
+
 	public logSleepinessData(sleepData:StanfordSleepinessData) {
-		//Storage.set(key, value);
 		SleepService.AllSleepData.push(sleepData);
 		SleepService.AllSleepinessData.push(sleepData);
+		this.sleepinessStorage.set(sleepData.id, sleepData);
+		//this.sleepinessStorage.showAll();
+		this.sleepinessStorage.displayArray().then(data => { 
+			console.log(data);
+		}); 
+	}
+
+	public async displayArray() { 
+		let promise = this.overnightStorage.displayArray().then(data => {
+			return data;
+		}); 
+		return Promise.resolve(promise);
 	}
 
 	public getSleepData(): SleepData[] {
@@ -62,19 +81,26 @@ export class SleepService {
 		return SleepService.AllSleepinessData;
 	}
 
-	/*
-	private loadDataFromStorage() { 
-		this.storage.forEach( (key, value, index) => {
-			start = value.split(",", [0]);
-			end = value.split(",")[1]; 
-			if (isSleepiness) { 
-				SleepService.AllSleepinessData.push(value);
-			}
-			else { 
-				SleepService.AllOvernightData.push(value);
-			}
-			SleepService.AllSleepData.push(value);
+	public retrieveAllOvernightData() { 
+		console.log("retrieveAllOvernightData(): ");
+		SleepService.AllOvernightData.forEach( (value) => {
+			this.overnightStorage.get(value.id).then( (data) => {
+				console.log(data);
+			});
 		});
 	}
-	*/
+
+	public retrieveAllSleepinessData() { 
+		console.log("retrieveAllSleepinessData(): ");
+		SleepService.AllSleepinessData.forEach( (value) => {
+			this.sleepinessStorage.get(value.id).then( (data) => {
+				console.log(data);
+			});
+		});
+	}
+
+	public clearData() { 
+		this.overnightStorage.clear(); 
+		this.sleepinessStorage.clear();
+	}
 }

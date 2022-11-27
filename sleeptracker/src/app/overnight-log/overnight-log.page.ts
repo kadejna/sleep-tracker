@@ -16,6 +16,7 @@ export class OvernightLogPage implements OnInit {
   constructor(private sleepService:SleepService, public toastController:ToastController) { }
 
   ngOnInit() {
+    //this.sleepService.init();
   }
 
   async presentToast() { 
@@ -31,6 +32,10 @@ export class OvernightLogPage implements OnInit {
     let data = new OvernightSleepData(new Date(this.sleepStart.valueOf()), new Date(this.sleepEnd.valueOf()));
     this.sleepService.logOvernightData(data);
     this.presentToast();
+    //this.sleepService.retrieveAllOvernightData();
+    //this.sleepService.retrieveAllSleepinessData();
   }
+
+
 
 }

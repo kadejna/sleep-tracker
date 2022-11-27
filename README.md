@@ -35,6 +35,7 @@
    https://capacitorjs.com/docs/apis/preferences
    https://stackoverflow.com/questions/69332412/module-angular-fire-firestore-has-no-exported-member-angularfirestoremodul
    https://forum.ionicframework.com/t/refusing-to-run-ionic-cordova-plugin-inside-a-capacitor-project/198408
+   https://forum.ionicframework.com/t/get-all-values-from-ionic-storage/101842/6
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 

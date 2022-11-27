@@ -33,6 +33,7 @@ export class SleepinessLogPage implements OnInit {
   }
 
   ngOnInit() {
+    //this.sleepService.init();
   }
 
   async presentToast() {
@@ -56,6 +57,8 @@ export class SleepinessLogPage implements OnInit {
 
     this.sleepService.logSleepinessData(data);
     this.presentToast();
+    //this.sleepService.retrieveAllOvernightData();
+    //this.sleepService.retrieveAllSleepinessData();
   }
 
 }
