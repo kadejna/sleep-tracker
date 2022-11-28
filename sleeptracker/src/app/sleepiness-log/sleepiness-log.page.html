@@ -6,21 +6,22 @@
 
 <!-- Content Body -->
 <ion-content>
-  <ion-button href="">Home</ion-button>
+  <ion-text id="title">Sleepiness Log</ion-text>
 
   <!-- Input: Log Time -->
-  <ion-item>
-    <ion-label>Log Time</ion-label>
-    <ion-datetime display-format="MM/DD/YYYY HH:mm:ss" [(ngModel)]="logTime">
-    </ion-datetime>
-  </ion-item>
-
-  <ion-range (ionChange)="onIonChange($event)" [ticks]="true" [snaps]="true" [min]="1" [max]="7"></ion-range>
-  <ion-label>Description: {{ rangeValue }}</ion-label>
+  <ion-list>
+    <ion-item>
+      <ion-label>Log Time</ion-label>
+      <ion-datetime display-format="MM/DD/YYYY HH:mm:ss" [(ngModel)]="logTime">
+      </ion-datetime>
+    </ion-item>
+  
+    <ion-range (ionChange)="onIonChange($event)" [ticks]="true" [snaps]="true" [min]="1" [max]="7"></ion-range>
+    <ion-label>Description: {{ rangeValue }}</ion-label>
+  </ion-list>
 
   <!-- Button: Submit Time -->
   <ion-button expand="block" (click)="addDataEntry()">Submit Sleepiness</ion-button>
-
 </ion-content>
 
 
