@@ -1,4 +1,6 @@
 --Readme document for _author(s)_, _email(s)_, _UCI id(s)_--
+Joseph Kim, josek16@uci.edu, 19929390
+Kade Na, nakj@uci.edu, 20392061
 
 1. How many assignment points do you believe you completed (replace the \*'s with your numbers)?
 
@@ -40,17 +42,19 @@
    https://ionicframework.com/docs/api/text
    https://capacitorjs.com/docs/apis/preferences#clear
    https://medium.com/coder-life/ionic-capacitor-storage-api-e4e7af5e0f0
-   
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 
 5. Is there anything special we need to know in order to run your code?
+   Dependencies must be installed. There are a couple unused dependencies that were not uninstalled, but will still be in the package.json.
 
 --Aim for no more than two sentences for each of the following questions.--
 
 6. Did you design your app with a particular type of user in mind? If so, whom?
+   This app was designed without a particular type of user in mind. The app should be relatively accessible for all age groups.
 
 7. Did you design your app specifically for iOS or Android, or both?
+   We designed our app specifically for iOS.
 
 8. How can a person log overnight sleep in your app? Why did you choose to support logging overnight sleep in this way?
 
