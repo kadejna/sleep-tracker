@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
-import { StorageService } from './storage.service';
+import { Storage } from '@capacitor/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +11,81 @@ import { StorageService } from './storage.service';
 export class SleepService {
 	private static LoadDefaultData:boolean = true;
 	public static AllSleepData:SleepData[] = [];
-	public static AllOvernightData = [];
-	public static AllSleepinessData = [];
+	public static AllOvernightData:OvernightSleepData[] = [];
+	public static AllSleepinessData:StanfordSleepinessData[] = [];
 
-	constructor(private overnightStorage:StorageService, private sleepinessStorage:StorageService) {
+	constructor() {
 		if(SleepService.LoadDefaultData) {
 			this.addDefaultData();
 			SleepService.LoadDefaultData = false;
 		}
+		this.addStorageData(); 
 	}
 
+	private addDefaultData() {
+		this.logOvernightData(new OvernightSleepData(new Date('February 18, 2021 01:03:00'), new Date('February 18, 2021 09:25:00')));
+		this.logSleepinessData(new StanfordSleepinessData(4, new Date('February 19, 2021 14:38:00')));
+		this.logOvernightData(new OvernightSleepData(new Date('February 20, 2021 23:11:00'), new Date('February 21, 2021 08:03:00')));
+	}
+
+	public logOvernightData(sleepData:OvernightSleepData) {
+		SleepService.AllSleepData.unshift(sleepData);
+		SleepService.AllOvernightData.unshift(sleepData);
+	}
+
+
+	public logSleepinessData(sleepData:StanfordSleepinessData) {
+		SleepService.AllSleepData.unshift(sleepData);
+		SleepService.AllSleepinessData.unshift(sleepData);
+	}
+
+	public async logStorageData(key, value) {
+		Storage.set({key:key, value: value}).then();
+	}
+
+	private async addStorageData(){
+		Storage.keys().then((data) => {
+			data.keys.forEach(k => {
+			  	Storage.get({key: k}).then((result) =>{
+					let parsed = JSON.parse(result.value);
+					if (parsed.sleepStart) {
+						let overnight = new OvernightSleepData(new Date(parsed.sleepStart), new Date(parsed.sleepEnd));
+						SleepService.AllOvernightData.push(overnight);
+						SleepService.AllSleepData.push(overnight);
+					} 
+					else {
+						let sleepiness = new StanfordSleepinessData(parsed.loggedValue, new Date(parsed.loggedAt));
+						SleepService.AllSleepinessData.push(sleepiness);
+						SleepService.AllSleepData.push(sleepiness);
+					}
+			  	})
+			});
+		});
+		SleepService.AllOvernightData.sort(function (first, second) { 
+			if (first.getSleepStart() < second.getSleepStart()) {
+				return 1; 
+			}
+			else if (first.getSleepStart() > second.getSleepStart()) { 
+				return -1; 
+			}
+			return 0; 
+		});
+		SleepService.AllSleepinessData.sort(function (first, second) { 
+			if (first.loggedAt < second.loggedAt) {
+				return 1; 
+			}
+			else if (first.loggedAt > second.loggedAt) { 
+				return -1; 
+			}
+			return 0; 
+		});
+	}
+
+	public clearData() { 
+		Storage.clear();
+	}
+
+	/*
 	public printOvernightArray() { 
 		console.log("PRINTING OUT OVERNIGHT ARRAY: ")
 		SleepService.AllOvernightData.forEach((key, value) => {
@@ -34,34 +99,9 @@ export class SleepService {
 			console.log(key, value);
 		});
 	}
+	*/
 
-	private addDefaultData() {
-		this.logOvernightData(new OvernightSleepData(new Date('February 18, 2021 01:03:00'), new Date('February 18, 2021 09:25:00')));
-		this.logSleepinessData(new StanfordSleepinessData(4, new Date('February 19, 2021 14:38:00')));
-		this.logOvernightData(new OvernightSleepData(new Date('February 20, 2021 23:11:00'), new Date('February 21, 2021 08:03:00')));
-	}
-
-	public logOvernightData(sleepData:OvernightSleepData) {
-		SleepService.AllSleepData.push(sleepData);
-		SleepService.AllOvernightData.push(sleepData);
-		this.overnightStorage.set(sleepData.id, sleepData);
-		//this.overnightStorage.showAll();
-		this.overnightStorage.displayArray().then(data => {
-			console.log(data);
-		}); 
-	}
-
-
-	public logSleepinessData(sleepData:StanfordSleepinessData) {
-		SleepService.AllSleepData.push(sleepData);
-		SleepService.AllSleepinessData.push(sleepData);
-		this.sleepinessStorage.set(sleepData.id, sleepData);
-		//this.sleepinessStorage.showAll();
-		this.sleepinessStorage.displayArray().then(data => { 
-			console.log(data);
-		}); 
-	}
-
+	/*
 	public async displayArray() { 
 		let promise = this.overnightStorage.displayArray().then(data => {
 			return data;
@@ -81,26 +121,9 @@ export class SleepService {
 		return SleepService.AllSleepinessData;
 	}
 
-	public retrieveAllOvernightData() { 
-		console.log("retrieveAllOvernightData(): ");
-		SleepService.AllOvernightData.forEach( (value) => {
-			this.overnightStorage.get(value.id).then( (data) => {
-				console.log(data);
-			});
-		});
-	}
-
-	public retrieveAllSleepinessData() { 
-		console.log("retrieveAllSleepinessData(): ");
-		SleepService.AllSleepinessData.forEach( (value) => {
-			this.sleepinessStorage.get(value.id).then( (data) => {
-				console.log(data);
-			});
-		});
-	}
-
 	public clearData() { 
 		this.overnightStorage.clear(); 
 		this.sleepinessStorage.clear();
 	}
+	*/
 }

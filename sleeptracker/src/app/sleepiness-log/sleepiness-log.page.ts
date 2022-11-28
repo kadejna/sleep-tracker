@@ -33,7 +33,6 @@ export class SleepinessLogPage implements OnInit {
   }
 
   ngOnInit() {
-    //this.sleepService.init();
   }
 
   async presentToast() {
@@ -51,14 +50,12 @@ export class SleepinessLogPage implements OnInit {
   }
 
   addDataEntry() {
-    console.log('Value: ' + this.lastValue.valueOf());
-    console.log('Date String: ' + this.logTime);
+    //console.log('Value: ' + this.lastValue.valueOf());
+    //console.log('Date String: ' + this.logTime);
     let data = new StanfordSleepinessData(this.lastValue.valueOf(), new Date(this.logTime.valueOf()));
 
-    this.sleepService.logSleepinessData(data);
+    this.sleepService.logStorageData(data.id, JSON.stringify(data));
     this.presentToast();
-    //this.sleepService.retrieveAllOvernightData();
-    //this.sleepService.retrieveAllSleepinessData();
   }
 
 }

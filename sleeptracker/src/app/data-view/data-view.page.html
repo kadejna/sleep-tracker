@@ -7,8 +7,12 @@
 <ion-content>
   <ion-button href="">Home</ion-button>
 
+  <ion-text color="primary">
+    <h1>Your Overnight Sleep Log</h1>
+  </ion-text>
+
   <ion-list>
-    <ion-card *ngFor="let overnight of sleepArray">
+    <ion-card *ngFor="let overnight of overnightData">
       <ion-card-header>
         <ion-card-title>{{overnight.loggedAt}}</ion-card-title>
         <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
@@ -21,11 +25,9 @@
     </ion-card>
   </ion-list>
 
-  <ion-button expand="block" (click)="clearData()">Clear Data</ion-button>
-
-  <ion-button expand="block" (click)="printArray()">Print Array</ion-button>
-
-  <ion-button expand="block" (click)="displayArray()">Display Array</ion-button>
+  <ion-text color="primary">
+    <h1>Your Sleepiness Log</h1>
+  </ion-text>
 
   <ion-list>
     <ion-card *ngFor="let sleepiness of sleepinessData">
@@ -40,5 +42,7 @@
       </ion-card-content>
     </ion-card>
   </ion-list>
+
+  <ion-button expand="block" (click)="clearData()">Clear Data</ion-button>
 
 </ion-content>
