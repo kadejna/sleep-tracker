@@ -4,17 +4,18 @@ Kade Na, nakj@uci.edu, 20392061
 
 1. How many assignment points do you believe you completed (replace the \*'s with your numbers)?
 
-\*/20
+20/20
 
-- \*/2 The ability to log overnight sleep
-- \*/2 The ability to log sleepiness during the day
-- \*/2 The ability to view these two categories of logged data
-- \*/4 Either using a native device resource or backing up logged data
-- \*/4 Following good principles of mobile design
-- \*/4 Creating a compelling app
-- \*/2 A readme and demo video which explains how these features were implemented and their design rationale
+- 2/2 The ability to log overnight sleep
+- 2/2 The ability to log sleepiness during the day
+- 2/2 The ability to view these two categories of logged data
+- 4/4 Either using a native device resource or backing up logged data
+- 4/4 Following good principles of mobile design
+- 4/4 Creating a compelling app
+- 2/2 A readme and demo video which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
+   Approximately 35 hours
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
    https://inf133.markbaldw.in/resources/11_15_22-ionic_components.pdf
@@ -44,6 +45,7 @@ Kade Na, nakj@uci.edu, 20392061
    https://medium.com/coder-life/ionic-capacitor-storage-api-e4e7af5e0f0
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
+   Tim Chen: Answered basic questions about the storage, and debugging tips
 
 5. Is there anything special we need to know in order to run your code?
    Dependencies must be installed. There are a couple unused dependencies that were not uninstalled, but will still be in the package.json.
@@ -54,18 +56,25 @@ Kade Na, nakj@uci.edu, 20392061
    This app was designed without a particular type of user in mind. The app should be relatively accessible for all age groups.
 
 7. Did you design your app specifically for iOS or Android, or both?
-   We designed our app specifically for iOS.
+   We designed our app specifically for both mobile platforms.
 
 8. How can a person log overnight sleep in your app? Why did you choose to support logging overnight sleep in this way?
+   From the home page, they can select the overnight sleep tab. Then, they can select the start and end date/time before using the submit button.
 
 9. How can a person log sleepiness during the day in your app? Why did you choose to support logging sleepiness in this way?
+   From the home page, they can select the sleepiness tab. Then they can select the date/time and scroll through the slider before using the submit button.
 
 10. How can a person view the data they logged in your app? Why did you choose to support viewing logged data in this way?
+    The user can view the logged data by navigating to the view log tab and refreshing the page by pulling down for any recent data (refresher was added due to data not being updated on the spot). We believed that it would be more organized having the data on a separate page.
 
 11. Which feature choose--using a native device resource, backing up logged data, or both?
+    We backed up the logged data.
 
 12. If you used a native device resource, what feature did you add? How does this feature change the app's experience for a user?
+    Not applicable.
 
 13. If you backed up logged data, where does it back up to?
+    We used capacitator storage in order to store the logged data. This means it will use UserDefaults on iOS and SharedPreferences on Android.
 
 14. How does your app implement or follow principles of good mobile design?
+    Our app implements good mobile design by increasing the visibility of button and text elements on the screen while also using a slider to make it easy for people to log sleepiness data. Also, we made it convenient for the user to navigate between pages by having tabs on the bottom of the screen.
