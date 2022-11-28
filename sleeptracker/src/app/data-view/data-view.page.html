@@ -7,6 +7,12 @@
 <ion-content>
   <ion-button href="">Home</ion-button>
 
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <p>Pull this content down to trigger the refresh and view the updated log.</p>
+
   <ion-text color="primary">
     <h1>Your Overnight Sleep Log</h1>
   </ion-text>

@@ -23,5 +23,4 @@ export class HomePage {
 	get allSleepData() {
 		return SleepService.AllSleepData;
 	}
-
 }

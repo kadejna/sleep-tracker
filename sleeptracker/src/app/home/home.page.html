@@ -12,10 +12,36 @@
       <ion-title size="large">Sleep Tracker</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-text color="secondary">
+    <p>Welcome to SleepTracker.</p>
+    <p>Please select your option below.</p>
+  </ion-text>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="overnight">
+        <ion-icon name="contrast"></ion-icon>
+        <ion-label>Overnight Log</ion-label>
+      </ion-tab-button>
   
-  <div id="container">
+      <ion-tab-button tab="sleepiness">
+        <ion-icon name="cloudy-night"></ion-icon>
+        <ion-label>Sleepiness Log</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="view">
+        <ion-icon name="eye"></ion-icon>
+        <ion-label>View Log</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  
+  
+  <!--<div id="container">
     <ion-button expand="block" href="overnight-log">Overnight Log</ion-button>
     <ion-button expand="block" href="sleepiness-log">Sleepiness Log</ion-button>
     <ion-button expand="block" href="data-view">View Data</ion-button>
   </div>
+-->
 </ion-content>

@@ -17,6 +17,14 @@ export class DataViewPage implements OnInit {
   constructor(private sleepService: SleepService) {
   }
 
+  handleRefresh(event) {
+    window.location.reload();
+    setTimeout(() => {
+      // Any calls to load data go here
+      event.target.complete();
+    }, 2000);
+  };
+
   async ngOnInit() {
     this.sleepData = SleepService.AllSleepData;
     this.overnightData = SleepService.AllOvernightData;
@@ -26,6 +34,7 @@ export class DataViewPage implements OnInit {
   
   clearData() { 
     this.sleepService.clearData(); 
+    window.location.reload();
     console.log("CLEARED DATA")
   }
 }
