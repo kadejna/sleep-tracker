@@ -31,6 +31,5 @@ export class OvernightLogPage implements OnInit {
     let data = new OvernightSleepData(new Date(this.sleepStart.valueOf()), new Date(this.sleepEnd.valueOf()));
     this.sleepService.logStorageData(data.id, JSON.stringify(data));
     this.presentToast();
-    window.location.reload();
   }
 }
