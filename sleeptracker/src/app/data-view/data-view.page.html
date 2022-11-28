@@ -5,17 +5,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-button href="">Home</ion-button>
-
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <p>Pull this content down to trigger the refresh and view the updated log.</p>
+  <ion-text id="title">View Log</ion-text>
+  <br>
+  <ion-text id="info">Pull down to refresh log data.</ion-text>
 
-  <ion-text color="primary">
-    <h1>Your Overnight Sleep Log</h1>
-  </ion-text>
+  <ion-text id="subtitle">Your Overnight Log Data</ion-text>
 
   <ion-list>
     <ion-card *ngFor="let overnight of overnightData">
@@ -31,9 +29,7 @@
     </ion-card>
   </ion-list>
 
-  <ion-text color="primary">
-    <h1>Your Sleepiness Log</h1>
-  </ion-text>
+  <ion-text id="subtitle">Your Sleepiness Log Data</ion-text>
 
   <ion-list>
     <ion-card *ngFor="let sleepiness of sleepinessData">
