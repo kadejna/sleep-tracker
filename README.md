@@ -43,6 +43,9 @@ Kade Na, nakj@uci.edu, 20392061
    https://ionicframework.com/docs/api/text
    https://capacitorjs.com/docs/apis/preferences#clear
    https://medium.com/coder-life/ionic-capacitor-storage-api-e4e7af5e0f0
+   https://www.freakyjolly.com/ionic-add-tabs-navigation-routing-in-ionic-angular-application/
+   https://ionicframework.com/docs/api/refresher
+   
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
    Tim Chen: Answered basic questions about the storage, and debugging tips
