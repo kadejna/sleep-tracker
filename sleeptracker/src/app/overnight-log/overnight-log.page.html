@@ -6,21 +6,25 @@
 
 <!-- Content Body -->
 <ion-content>
-  <ion-button href="">Home</ion-button>
+  <div>
+    <ion-text id="title">Overnight Log</ion-text>
+  </div>
 
   <!-- Input: Sleep Start Time -->
-  <ion-item>
-    <ion-label>Sleep Start Time</ion-label>
-    <ion-datetime display-format="MM/DD/YYYY HH:mm:ss" [(ngModel)]="sleepStart">
-    </ion-datetime>
-  </ion-item>
-  
-  <!-- Input: Sleep End Time -->
-  <ion-item>
-    <ion-label>Sleep End Time</ion-label>
-    <ion-datetime display-format="MM/DD/YYYY HH:mm:ss" [(ngModel)]="sleepEnd">
-    </ion-datetime>
-  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label>Sleep Start Time</ion-label>
+      <ion-datetime display-format="MM/DD/YYYY HH:mm:ss" [(ngModel)]="sleepStart">
+      </ion-datetime>
+    </ion-item>
+    
+    <!-- Input: Sleep End Time -->
+    <ion-item>
+      <ion-label>Sleep End Time</ion-label>
+      <ion-datetime display-format="MM/DD/YYYY HH:mm:ss" [(ngModel)]="sleepEnd">
+      </ion-datetime>
+    </ion-item>
+  </ion-list>
 
   <!-- Button: Submit Time -->
   <ion-button expand="block" (click)="addDataEntry()">Submit Time</ion-button>
