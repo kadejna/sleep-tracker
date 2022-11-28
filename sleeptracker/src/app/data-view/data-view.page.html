@@ -18,8 +18,7 @@
   <ion-list>
     <ion-card *ngFor="let overnight of overnightData">
       <ion-card-header>
-        <ion-card-title>{{overnight.loggedAt}}</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-title>{{overnight.dateString()}}</ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
@@ -33,8 +32,7 @@
   <ion-list>
     <ion-card *ngFor="let sleepiness of sleepinessData">
       <ion-card-header>
-        <ion-card-title>{{sleepiness.loggedAt}}</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-title>{{sleepiness.dateString()}}</ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
